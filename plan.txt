@@ -1,0 +1,26 @@
+Todos:
+[+] Create a npm project and install dependancies. express, moment, nodemon
+
+[+] create folders and files all we need. public, js, css, index, img
+
+[+] Setup express server server.js
+
+[+] do fontend part html and css
+
+[+] Post comment logic ,append to dom, install socket.io, emit event from client
+
+[+] Listen and broadcast event from server 
+
+[+] Listen for incoming events on client
+
+[+] Append comments animation
+
+[+] Typing... animation 
+
+[ ] Sync with db: connect to Mongo DB, install mongoose, create model
+
+[ ] Create routes and db logic
+
+[ ] Save a comment to db on post comment
+
+[ ] Show comments from DB on load
