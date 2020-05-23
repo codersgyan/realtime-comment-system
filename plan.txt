@@ -17,10 +17,10 @@ Todos:
 
 [+] Typing... animation 
 
-[ ] Sync with db: connect to Mongo DB, install mongoose, create model
+[+] Sync with db: connect to Mongo DB, install mongoose, create model
 
-[ ] Create routes and db logic
+[+] Create routes and db logic
 
-[ ] Save a comment to db on post comment
+[+] Save a comment to db on post comment
 
-[ ] Show comments from DB on load
+[+] Show comments from DB on load
