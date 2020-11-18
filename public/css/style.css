@@ -18,6 +18,21 @@ p {
     animation: something .6s ease forwards;
 }
 
+.btn-primary {
+    background-color: #004e73;
+    border-color: #006b9c;
+}
+
+.btn-primary:hover {
+    background-color: #006b9c;
+    border-color: #004e73;
+}
+
+.form-control:focus {
+    border-color: #004e73;
+    box-shadow: 0 0 10px #004e73;
+}
+
 @keyframes something {
     0% {
         transform: translateY(-30px);
