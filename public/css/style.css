@@ -33,6 +33,11 @@ p {
     box-shadow: 0 0 10px #004e73;
 }
 
+.logintxt, a:link, a:visited, a:hover, a:active{
+    color: #004e73;
+    
+}
+
 @keyframes something {
     0% {
         transform: translateY(-30px);

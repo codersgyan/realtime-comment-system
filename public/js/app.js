@@ -4,10 +4,12 @@ let socket = io()
 const textarea = document.querySelector('#textarea')
 const submitBtn = document.querySelector('#submitBtn')
 const commentBox = document.querySelector('.comment__box')
+const loginTxt = document.querySelector('.logintxt')
 
 submitBtn.addEventListener('click', (e) => {
     doComment(e)
 })
+login(false)
 
 function doComment(e) {
     e.preventDefault()
@@ -18,12 +20,36 @@ function doComment(e) {
     postComment(comment)
 }
 
+function login(ask)
+{
+    username = localStorage.getItem('username')
+    if (!username && ask) {
+        username = prompt('Please enter your name: ')
+        if (username) {
+            localStorage.setItem('username', username)
+        }
+    }
+    if(username)
+    {
+        loginTxt.innerHTML = `You are logged in as ${username}. <a href="#" onclick="logout();">Logout.</a>`
+    }
+    else
+    {
+        loginTxt.innerText = ''
+    }
+}
+
+function logout()
+{
+    username = false
+    localStorage.removeItem('username')
+    login(false)
+}
 
 function postComment(comment) {
     // Append to dom
-    do {
-        username = prompt('Please enter your name: ')
-    } while(!username)
+    login(true)
+    if(!username) return;
 
     let data = {
         username: username,
