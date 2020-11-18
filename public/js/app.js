@@ -1,24 +1,30 @@
 let username 
 let socket = io()
-do {
-    username = prompt('Enter your name: ')
-} while(!username)
 
 const textarea = document.querySelector('#textarea')
 const submitBtn = document.querySelector('#submitBtn')
 const commentBox = document.querySelector('.comment__box')
 
 submitBtn.addEventListener('click', (e) => {
+    doComment(e)
+})
+
+function doComment(e) {
     e.preventDefault()
     let comment = textarea.value
     if(!comment) {
         return
     }
     postComment(comment)
-})
+}
+
 
 function postComment(comment) {
     // Append to dom
+    do {
+        username = prompt('Please enter your name: ')
+    } while(!username)
+
     let data = {
         username: username,
         comment: comment
@@ -43,7 +49,7 @@ function appendToDom(data) {
                                 <p>${data.comment}</p>
                                 <div>
                                     <img src="/img/clock.png" alt="clock">
-                                    <small>${moment(data.time).format('LT')}</small>
+                                    <small>${moment(data.time).fromNow()}</small>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +78,7 @@ function debounce(func, timer) {
 }
 let typingDiv = document.querySelector('.typing')
 socket.on('typing', (data) => {
-    typingDiv.innerText = `${data.username} is typing...`
+    typingDiv.innerText = `${data.username} types...`
     debounce(function() {
         typingDiv.innerText = ''
     }, 1000)
@@ -81,6 +87,13 @@ socket.on('typing', (data) => {
 // Event listner on textarea
 textarea.addEventListener('keyup', (e) => {
     socket.emit('typing', { username })
+})
+
+// Send on enter
+textarea.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        doComment(e);
+      }
 })
 
 // Api calls 
