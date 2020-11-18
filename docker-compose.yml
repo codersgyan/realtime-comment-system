@@ -1,0 +1,15 @@
+version: "2"
+services:
+  commentserver:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - "7130:3000"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+  mongodb:
+    image: mongo:3.5
+    command: mongod --bind_ip_all
