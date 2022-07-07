@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.15",
     "socket.io": "^2.3.0"
   },
